@@ -1,4 +1,5 @@
 import enums.ActionLetter;
+import exceptions.CustomException;
 import model.*;
 import model.moneyAcceptor.*;
 import util.UniversalArray;
@@ -104,15 +105,12 @@ public class AppRunner {
                 """);
         String strAnswer = fromConsole().trim().substring(0, 1);
         try {
-            switch (strAnswer) {
-                case "1":
-                    return new CardAcceptor(100);
-                case "2":
-                    return new CoinAcceptor(100);
-                default:
-                    throw new IllegalArgumentException("Вы ввели неверный ответ..");
-            }
-        } catch (IllegalArgumentException e) {
+            return switch (strAnswer) {
+                case "1" -> new CardAcceptor(100);
+                case "2" -> new CoinAcceptor(100);
+                default -> throw new IllegalArgumentException("Вы ввели неверный ответ..");
+            };
+        } catch (IllegalArgumentException | CustomException e) {
             System.out.println(e.getMessage());
             return choosePayment();
         }

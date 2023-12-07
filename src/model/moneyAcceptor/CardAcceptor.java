@@ -1,17 +1,25 @@
 package model.moneyAcceptor;
 
+import exceptions.CustomException;
+
 import java.util.Scanner;
 
 public class CardAcceptor implements MoneyAcceptor{
     private final Scanner sc = new Scanner (System.in);
-
+    private int balance;
     private int amount;
     private String oneTimePassword;
     private final Long cardNumber;
-    public CardAcceptor(int amount) {
+    public CardAcceptor(int amount) throws CustomException {
+        balance = 1000;
         cardNumber = enterCardNumber();
         oneTimePassword = enterPassword();
         this.amount = amount;
+        balance -= amount;
+
+        if (balance < 0) {
+            throw new CustomException("Недостаточно средств..");
+        }
     }
 
     @Override
