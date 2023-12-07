@@ -1,3 +1,4 @@
+// Проект импортировался из удаленного репозитория с помощью Get from VCS из Intellij IDEA 
 git rm -r --cached .idea
 git status
 git add .gitignore
