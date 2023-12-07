@@ -1,0 +1,63 @@
+git rm -r --cached .idea
+git status
+git add .gitignore
+git status
+git commit -m "Deleted .idea from git and adjusted .gitignore"
+
+git status
+git add src/AppRunner.java
+git add src/model/moneyAcceptor/CardAcceptor.java
+git add src/model/moneyAcceptor/CoinAcceptor.java
+git add src/model/moneyAcceptor/MoneyAcceptor.java
+git status
+git commit -m "Made initial realization of money acceptor selection
+
+- Created new directory moneyAcceptor
+- Created new interface MoneyAcceptor
+- Created new class CardAcceptor which implements MoneyAcceptor
+- Made CoinAcceptor implementing MoneyAcceptor and moved to the directory /moneyAcceptor
+- adjusted import in AppRunner"
+
+git status
+git add src/model/moneyAcceptor/CardAcceptor.java
+git add src/model/moneyAcceptor/CoinAcceptor.java
+git add src/model/moneyAcceptor/MoneyAcceptor.java
+git commit -m "Added abstract methods in MoneyAcceptor, annotations in CoinAcceptor and sketched CardAcceptor"
+
+git add src/model/moneyAcceptor/CardAcceptor.java
+git status
+git commit -m "Wrote the logic for entering a card number and one-time password in CardAcceptor"
+
+git add src/model/moneyAcceptor/CardAcceptor.java
+git status
+git commit -m "Adjusted CardAcceptor methods, added exception catching"
+
+git status
+git add src/AppRunner.java
+git status
+git commit -m "Added possibility to change payment method in AppRunner
+
+- The CoinAcceptor type has been replaced with MoneyAcceptor
+- Added new method choosePayment and it was called in constructor as a value for MoneyAcceptor variable"
+
+git status
+git add src/exceptions/CustomException.java
+git add src/AppRunner.java
+git add src/model/moneyAcceptor/CardAcceptor.java
+git commit -m "Added initial card balance
+
+- Added balance in CardAcceptor, balance reduces after creating new CardAcceptor object
+- Added new CustomException in new /exceptions directory
+- Added exception catching if balance is below 0
+- Adjusted switch-case in AppRunner method choosePayment by an Intellij suggestion"
+
+
+git rm --cached vending_machine.iml
+git status
+// commands.txt добавлялся из интерфейса IDE и сразу был добавлен в git
+git commit -m "Deleted vending_machine.iml from git, created commands.txt"
+
+git add commands.txt
+git status
+git commit -m "Saved commands.txt"
+git push origin home_work_25
