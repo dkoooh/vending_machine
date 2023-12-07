@@ -24,8 +24,8 @@ public class CardAcceptor implements MoneyAcceptor{
         this.amount = amount;
     }
 
-    private Long enterCardNumber() {
-        while (true) {
+    private Long enterCardNumber() throws IllegalArgumentException{
+        try {
             System.out.print("Введите номер карты (без пробелов): ");
             String strCardNumber = sc.nextLine().trim();
             if (!strCardNumber.isEmpty()) {
@@ -37,11 +37,14 @@ public class CardAcceptor implements MoneyAcceptor{
             } else {
                 throw new IllegalArgumentException("Вы не ввели номер карты..");
             }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return enterCardNumber();
         }
     }
 
-    private String enterPassword () {
-        while (true) {
+    private String enterPassword() throws IllegalArgumentException {
+        try {
             System.out.print("Введите одноразовый код: ");
             String oneTimePassword = sc.nextLine().trim();
             if (!oneTimePassword.isEmpty()) {
@@ -49,6 +52,9 @@ public class CardAcceptor implements MoneyAcceptor{
             } else {
                 throw new IllegalArgumentException("Вы не ввели код..");
             }
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+            return enterPassword();
         }
     }
 }
