@@ -1,4 +1,5 @@
-// Проект импортировался из удаленного репозитория с помощью Get from VCS из Intellij IDEA 
+git clone
+git checkout -b home_work_25 origin/home_work_25
 git rm -r --cached .idea
 git status
 git add .gitignore
